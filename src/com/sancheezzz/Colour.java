@@ -9,5 +9,4 @@ public enum Colour {
     Colour(int cost) {
         this.cost=cost;
     }
-
 }

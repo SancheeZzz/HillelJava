@@ -17,4 +17,5 @@ public class Square implements Shape {
         this.side=side;
         this.colour=colour;
     }
+
 }

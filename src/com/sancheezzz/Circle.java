@@ -12,7 +12,6 @@ public class Circle implements Shape {
     public Colour colour() {
         return colour;
     }
-
     Circle(int radius,Colour colour){
         this.radius=radius;
         this.colour=colour;
