@@ -20,13 +20,13 @@ public class RecursiveScanner implements MyScanner {
             found +=scanner.scan(word);
             for (File entry : directory.listFiles()) {
                 if (entry.isDirectory()) {
-                    String path = entry.getPath();
+                    String path = entry.getAbsolutePath();
                     FileScanner recScanner = new FileScanner(new java.io.File(path));
                     found +=recScanner.scan(word);
                 }
             }
         }catch (Exception e){
-            System.out.println(e.getStackTrace().toString());
+            e.printStackTrace();
         }
         return found;
     }

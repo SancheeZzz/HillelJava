@@ -7,9 +7,10 @@ public class FileScanner implements MyScanner {
     public int scan(String word) {
         int found = 0;
         try {
-            if ((file.isDirectory())) {
+
             for (File files : file.listFiles()) {
-                BufferedReader br = new BufferedReader(new java.io.FileReader(files));
+                if (!(files.isDirectory())) {
+                    BufferedReader br = new BufferedReader(new java.io.FileReader(files.getAbsolutePath()));
                 String s;
                 while ((s = br.readLine()) != null) {
                     if (s.contains(word)) {
@@ -19,7 +20,7 @@ public class FileScanner implements MyScanner {
             }
         }
         }catch (Exception e) {
-            System.out.println(e.getStackTrace().toString());
+            e.printStackTrace();
         }
             return found;
         }
