@@ -17,6 +17,7 @@ public class RecursiveScanner implements MyScanner {
     public int scan(String word) {
         try{
             FileScanner scanner = new FileScanner(directory);
+            found +=scanner.scan(word);
             for (File entry : directory.listFiles()) {
                 if (entry.isDirectory()) {
                     String path = entry.getPath();
@@ -25,7 +26,7 @@ public class RecursiveScanner implements MyScanner {
                 }
             }
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace().toString());
         }
         return found;
     }
