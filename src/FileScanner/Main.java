@@ -10,7 +10,9 @@ public class Main {
 //        System.out.println(fileReader.read());
 //        FileScanner fScan= new FileScanner(new java.io.File("C:\\Users\\SancheeZzz\\ForTest"));
 //        System.out.println(fScan.scan("Tinker"));
-        RecursiveScanner recScan = new RecursiveScanner(new java.io.File("C:\\Users\\SancheeZzz\\ForTest"));
-        System.out.println(recScan.scan("Tinker"));
+//        RecursiveScanner recScan = new RecursiveScanner(new java.io.File("C:\\Users\\SancheeZzz\\ForTest"));
+//        System.out.println(recScan.scan("Tinker"));
+        FileScanner fileScanner = new FileScanner("C:\\Users\\SancheeZzz\\ForTest");
+        System.out.println(fileScanner.scan("Tinker","C:\\Users\\SancheeZzz\\ForTest"));
     }
 }

@@ -1,32 +1,31 @@
 package FileScanner;
-import java.io.*;
+import java.io.*;public class FileScanner implements MyScanner {
+    String path;
 
-public class FileScanner implements MyScanner {
-    File file;
 
-    public int scan(String word) {
+    public FileScanner(String path) throws IOException {
+        this.path = path;
+    }
+    BufferedReader br = new BufferedReader(new java.io.FileReader(path));
+
+    public int scan(String word, String path) {
         int found = 0;
         try {
-
+            File file=new File(path);
             for (File files : file.listFiles()) {
-                if (!(files.isDirectory())) {
-                    BufferedReader br = new BufferedReader(new java.io.FileReader(files.getAbsolutePath()));
+            if ((!files.isDirectory())) {
                 String s;
                 while ((s = br.readLine()) != null) {
                     if (s.contains(word)) {
                         found++;
                     }
                 }
-            }
-        }
+            }if (files.isDirectory()){
+                scan(path, word);
+            }            }
         }catch (Exception e) {
             e.printStackTrace();
         }
-            return found;
-        }
-
-
-    FileScanner(File file ){
-        this.file=file;
+        return found;
     }
 }
